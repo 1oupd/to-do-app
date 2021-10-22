@@ -3,32 +3,38 @@ import Form from "./Form";
 import ToDo from "./ToDo";
 
 function List() {
-  const [items, setItems] = useState([]);
+  const [todos, setTodos] = useState([]);
 
-  const addItem = (item) => {
-    if (!item.text || /^\s*$/.test(item.text)) {
+  const addTodo = todo => {
+    if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
 
-    const newItems = [item, ...items];
+    const newTodos = [todo, ...todos];
 
-    setItems(newItems);
+    setTodos(newTodos);
   };
 
-  const completeItem = (id) => {
-    let updatedItems = items.map((item) => {
-      if (item.id === id) {
-        item.isComplete = !item.isComplete;
+  const removeTodo = id => {
+    const removeArr = [...todos].filter(todo => todo.id !== id);
+    setTodos(removeArr);
+  };
+
+  const completeTodo = id => {
+    let updatedTodos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.isComplete = !todo.isComplete
       }
-      return item;
+      return todo;
     });
-    setItems(updatedItems);
+    setTodos(updatedTodos)
   };
+
   return (
-    <div>
-      <h1>What do you have in mind?</h1>
-      <Form onSubmit={addItem} />
-      <ToDo items={items} completeItem={completeItem} />
+    <div className="form-submit">
+      <h1>what would you like to do?</h1>
+      <Form onSubmit={addTodo} />
+      <ToDo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} />
     </div>
   );
 }

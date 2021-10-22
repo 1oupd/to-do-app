@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+
+* {
+  font-family: Poppins, sans serif, arial;
+  font-size: 25px;
+  background-color: #413f3e;
+  letter-spacing: 5px;
+}
+
+* button {
+  background-color: #9b9b8d;
+  color: rgb(252, 246, 225);
+  font-weight: 700;
+  border-radius: 3px;
+}
+
+* input {
+  background: #ddbea9;
+  margin-right: 5px;
+  width: 60%;
+  border-radius: 3px;
+}
+
+* h1 {
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 1.2em;
+}
+
+.to-do-form {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.todo-app {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: rgb(252, 246, 225);
+}
